@@ -1,0 +1,7 @@
+C:\Users\julia_000\SkyDrive\Visual Studio 2013\Projects\MarionetteXNA\MarionetteXNA\MarionetteXNA\bin\x86\Debug\MarionetteXNA.exe
+C:\Users\julia_000\SkyDrive\Visual Studio 2013\Projects\MarionetteXNA\MarionetteXNA\MarionetteXNA\bin\x86\Debug\MarionetteXNA.pdb
+C:\Users\julia_000\SkyDrive\Visual Studio 2013\Projects\MarionetteXNA\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.csprojResolveAssemblyReference.cache
+C:\Users\julia_000\SkyDrive\Visual Studio 2013\Projects\MarionetteXNA\MarionetteXNA\MarionetteXNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\julia_000\SkyDrive\Visual Studio 2013\Projects\MarionetteXNA\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.exe
+C:\Users\julia_000\SkyDrive\Visual Studio 2013\Projects\MarionetteXNA\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.pdb
+C:\Users\julia_000\SkyDrive\Visual Studio 2013\Projects\MarionetteXNA\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\robot.xnb

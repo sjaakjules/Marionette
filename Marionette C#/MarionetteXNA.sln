@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarionetteXNA", "MarionetteXNA\MarionetteXNA\MarionetteXNA.csproj", "{7C486859-3918-477B-A0C7-60EFDF645D3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarionetteXNAContent", "MarionetteXNA\MarionetteXNAContent\MarionetteXNAContent.contentproj", "{500101A7-64C3-4E87-BDFA-A7D3F4DA9A6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Debug|Xbox 360 = Debug|Xbox 360
+		Release|x86 = Release|x86
+		Release|Xbox 360 = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C486859-3918-477B-A0C7-60EFDF645D3D}.Debug|x86.ActiveCfg = Debug|x86
+		{7C486859-3918-477B-A0C7-60EFDF645D3D}.Debug|x86.Build.0 = Debug|x86
+		{7C486859-3918-477B-A0C7-60EFDF645D3D}.Debug|Xbox 360.ActiveCfg = Debug|x86
+		{7C486859-3918-477B-A0C7-60EFDF645D3D}.Release|x86.ActiveCfg = Release|x86
+		{7C486859-3918-477B-A0C7-60EFDF645D3D}.Release|x86.Build.0 = Release|x86
+		{7C486859-3918-477B-A0C7-60EFDF645D3D}.Release|Xbox 360.ActiveCfg = Release|x86
+		{500101A7-64C3-4E87-BDFA-A7D3F4DA9A6C}.Debug|x86.ActiveCfg = Debug|x86
+		{500101A7-64C3-4E87-BDFA-A7D3F4DA9A6C}.Debug|Xbox 360.ActiveCfg = Debug|x86
+		{500101A7-64C3-4E87-BDFA-A7D3F4DA9A6C}.Release|x86.ActiveCfg = Release|x86
+		{500101A7-64C3-4E87-BDFA-A7D3F4DA9A6C}.Release|Xbox 360.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
