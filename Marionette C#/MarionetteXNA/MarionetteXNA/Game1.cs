@@ -20,16 +20,30 @@ namespace MarionetteXNA
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private Model robot;
-        private Matrix link1Matrix;
         private Matrix viewMatrix, projectionMatrix;
-        private Vector3 cameraPosition, endeffector;
+        private Vector3 cameraPosition, workSpace;
         private float aspectRatio;
+
+        private RobotData robot;
+        private RobotSim robotSim;
+
+        public Matrix ViewMat
+        {
+            get { return viewMatrix; }
+        }
+        public Matrix ProjectionMat
+        {
+            get { return projectionMatrix; }
+        }
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            IsMouseVisible = true;
+            IsFixedTimeStep = true;
+            TargetElapsedTime = new TimeSpan(0, 0, 0, 0, 100);
+            
         }
 
         /// <summary>
@@ -41,12 +55,17 @@ namespace MarionetteXNA
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            robot = new RobotData(this);
+            robotSim = new RobotSim(this);
+            this.Components.Add(robot);
+            this.Components.Add(robotSim);
 
-            cameraPosition = new Vector3(400.0f, 200.0f, 400.0f);
-            endeffector = new Vector3(54.0f, 90.0f, 0.0f);
+            // Setup viewing matrix for Simulation window
+            cameraPosition = new Vector3(1000.0f, 800.0f, 1000.0f);
+            workSpace = new Vector3(500.0f, 500.0f, 0.0f);
             aspectRatio = graphics.GraphicsDevice.Viewport.AspectRatio;
-            viewMatrix = Matrix.CreateLookAt(cameraPosition, endeffector, Vector3.Up);
-            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(20.0f), aspectRatio, 100.0f, 10000.0f);
+            viewMatrix = Matrix.CreateLookAt(cameraPosition, workSpace, Vector3.Up);
+            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), aspectRatio, 100.0f, 5000.0f);
 
             base.Initialize();
         }
@@ -59,8 +78,7 @@ namespace MarionetteXNA
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            robot = Content.Load<Model>("robot");
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -85,7 +103,7 @@ namespace MarionetteXNA
                 this.Exit();
 
             // TODO: Add your update logic here
-            link1Matrix = getDH(0, 0, 0, 0);
+            
 
             base.Update(gameTime);
         }
@@ -100,32 +118,10 @@ namespace MarionetteXNA
 
             // TODO: Add your drawing code here
 
-            Matrix[] transforms = new Matrix[robot.Bones.Count];
-            robot.CopyAbsoluteBoneTransformsTo(transforms);
-
-            foreach (ModelMesh mesh in robot.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                    effect.World = transforms[mesh.ParentBone.Index] * link1Matrix;
-                    effect.View = viewMatrix;
-                    effect.Projection = projectionMatrix;
-                    
-                }
-                mesh.Draw();
-            }
+            
 
             base.Draw(gameTime);
         }
-
-        private Matrix getDH(float alpha, float a, float beta, float b)
-        {
-            Matrix rotationX = Matrix.CreateRotationX(MathHelper.ToRadians(alpha));
-            rotationX.Translation = new Vector3(a, 0, 0);
-            Matrix rotationZ = Matrix.CreateRotationZ(MathHelper.ToRadians(beta));
-            rotationZ.Translation = new Vector3(0, 0, b);
-            return rotationX * rotationZ;
-        }
+                
     }
 }
