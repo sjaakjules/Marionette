@@ -20,8 +20,12 @@ namespace MarionetteXNA
         Game1 game;
 
         private Model robot;
+        private Model Table;
         private Matrix[] Transforms;
         private ModelBone[] Bones;
+
+        Matrix[] TableTransforms;
+        ModelBone[] TableBones;
         private float[] Angles;
         private Vector3 EndEffector;
 
@@ -54,6 +58,7 @@ namespace MarionetteXNA
         {
 
             robot =  game.Content.Load<Model>("robot");
+            Table = game.Content.Load<Model>("table");
             base.LoadContent();
         }
         #endregion
@@ -71,8 +76,19 @@ namespace MarionetteXNA
         public override void Draw(GameTime gameTime)
         {
             Matrix[] transforms = new Matrix[robot.Bones.Count];
+            TableTransforms = new Matrix[Table.Bones.Count];
             robot.CopyAbsoluteBoneTransformsTo(transforms);
-
+            Table.CopyAbsoluteBoneTransformsTo(TableTransforms);
+            foreach (ModelMesh mesh in Table.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                    effect.World = TableTransforms[mesh.ParentBone.Index];
+                    effect.View = game.ViewMat;
+                    effect.Projection = game.ProjectionMat;
+                }
+            }
             foreach (ModelMesh mesh in robot.Meshes)
             {
                 foreach (BasicEffect effect in mesh.Effects)

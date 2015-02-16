@@ -26,6 +26,7 @@ namespace MarionetteXNA
 
         private RobotData robot;
         private RobotSim robotSim;
+        private XMLwriter settings;
 
         public Matrix ViewMat
         {
@@ -61,12 +62,12 @@ namespace MarionetteXNA
             this.Components.Add(robotSim);
 
             // Setup viewing matrix for Simulation window
-            cameraPosition = new Vector3(1000.0f, 800.0f, 1000.0f);
-            workSpace = new Vector3(500.0f, 500.0f, 0.0f);
+            cameraPosition = new Vector3(2000.0f, 800.0f, 2000.0f);
+            workSpace = new Vector3(500.0f, 500.0f, 300.0f);
             aspectRatio = graphics.GraphicsDevice.Viewport.AspectRatio;
             viewMatrix = Matrix.CreateLookAt(cameraPosition, workSpace, Vector3.Up);
-            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), aspectRatio, 100.0f, 5000.0f);
-
+            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), aspectRatio, 1.0f, 50000.0f);
+            settings = new XMLwriter();
             base.Initialize();
         }
 
@@ -103,8 +104,8 @@ namespace MarionetteXNA
                 this.Exit();
 
             // TODO: Add your update logic here
-            
 
+            settings.updateRobot();
             base.Update(gameTime);
         }
 

@@ -14,3 +14,4 @@ C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\Marionette
 C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.pdb
 C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.GUI.resources
 C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.csproj.GenerateResource.Cache
+C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\table.xnb
