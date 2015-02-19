@@ -8,10 +8,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\robot.xnb</Output>
-      <Time>2015-02-12T16:38:02.9705061+11:00</Time>
+      <Time>2015-02-12T17:24:48.950999+11:00</Time>
       <Dependency>
         <Key>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\robot_0.xml</Key>
-        <Value>2015-02-12T17:19:46.8447195+11:00</Value>
+        <Value>2015-02-16T13:05:13.3651449+11:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -19,7 +19,27 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\robot_0.xml</Output>
-      <Time>2015-02-12T16:38:02.9705061+11:00</Time>
+      <Time>2015-02-12T17:24:48.950999+11:00</Time>
+    </Item>
+    <Item>
+      <Source>table.FBX</Source>
+      <Name>table</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\table.xnb</Output>
+      <Time>2015-02-16T19:16:04.8375283+11:00</Time>
+      <Dependency>
+        <Key>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\table_0.xml</Key>
+        <Value>2015-02-16T19:21:38.5056131+11:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>table.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\table_0.xml</Output>
+      <Time>2015-02-16T19:16:04.8375283+11:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

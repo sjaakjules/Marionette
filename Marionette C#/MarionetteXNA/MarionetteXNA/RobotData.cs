@@ -16,9 +16,11 @@ namespace MarionetteXNA
     class RobotData : GameComponent
     {
         #region Fields
-        Matrix[] sequentialHomeTransform;
-        Matrix TipTransform;
-        float[][] dhParameters;
+        private Matrix[] sequentialHomeTransform;
+        private Matrix TipTransform;
+        private float[][] dhParameters;
+        private Matrix ToGlobal;
+        private XMLreader.Position kukaPosition;
         #endregion
 
 
@@ -50,7 +52,15 @@ namespace MarionetteXNA
 
 
         #region Properties
+        public Vector3 GlobalPosition
+        {
+            get { return (ToGlobal * TipTransform).Translation; }
+        }
 
+        public XMLreader.Position KukaPosition
+        {
+            get { return kukaPosition; }
+        }
         #endregion
 
         #region Methods
