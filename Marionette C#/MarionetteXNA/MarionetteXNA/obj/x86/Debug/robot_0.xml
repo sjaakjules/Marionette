@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>Base</Name>
     <Identity>
-      <SourceFilename>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNAContent\robot.FBX</SourceFilename>
+      <SourceFilename>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNAContent\robot.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>

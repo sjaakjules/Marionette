@@ -1,2 +1,3 @@
 C:\Users\julia_000\SkyDrive\Visual Studio 2013\Projects\MarionetteXNA\MarionetteXNA\MarionetteXNAContent\obj\x86\Debug\MarionetteXNAContent.contentprojResolveAssemblyReference.cache
 C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNAContent\obj\x86\Debug\MarionetteXNAContent.contentprojResolveAssemblyReference.cache
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNAContent\obj\x86\Debug\MarionetteXNAContent.contentprojResolveAssemblyReference.cache

@@ -15,3 +15,13 @@ C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\Marionette
 C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.GUI.resources
 C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.csproj.GenerateResource.Cache
 C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\table.xnb
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\table.xnb
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\robot.xnb
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\MarionetteXNA.exe
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\MarionetteXNA.pdb
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.csprojResolveAssemblyReference.cache
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.GUI.resources
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.csproj.GenerateResource.Cache
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.exe
+C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\MarionetteXNA.pdb

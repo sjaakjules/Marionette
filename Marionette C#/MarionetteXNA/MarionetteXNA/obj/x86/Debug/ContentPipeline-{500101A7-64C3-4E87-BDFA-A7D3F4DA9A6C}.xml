@@ -2,44 +2,44 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>robot.FBX</Source>
-      <Name>robot</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\robot.xnb</Output>
-      <Time>2015-02-12T17:24:48.950999+11:00</Time>
-      <Dependency>
-        <Key>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\robot_0.xml</Key>
-        <Value>2015-02-16T13:05:13.3651449+11:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>robot.FBX</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\robot_0.xml</Output>
-      <Time>2015-02-12T17:24:48.950999+11:00</Time>
-    </Item>
-    <Item>
       <Source>table.FBX</Source>
       <Name>table</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\table.xnb</Output>
-      <Time>2015-02-16T19:16:04.8375283+11:00</Time>
+      <Output>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\table.xnb</Output>
+      <Time>2015-02-20T10:19:38.9151432+11:00</Time>
       <Dependency>
-        <Key>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\table_0.xml</Key>
-        <Value>2015-02-16T19:21:38.5056131+11:00</Value>
+        <Key>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\table_0.xml</Key>
+        <Value>2015-02-20T16:46:33.1419255+11:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>robot.FBX</Source>
+      <Name>robot</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\robot.xnb</Output>
+      <Time>2015-02-13T13:39:21.0134817+11:00</Time>
+      <Dependency>
+        <Key>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\robot_0.xml</Key>
+        <Value>2015-02-20T16:46:33.8469635+11:00</Value>
       </Dependency>
     </Item>
     <Item>
       <Source>table.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\table_0.xml</Output>
-      <Time>2015-02-16T19:16:04.8375283+11:00</Time>
+      <Output>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\table_0.xml</Output>
+      <Time>2015-02-20T10:19:38.9151432+11:00</Time>
+    </Item>
+    <Item>
+      <Source>robot.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\robot_0.xml</Output>
+      <Time>2015-02-13T13:39:21.0134817+11:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -48,10 +48,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNAContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Carlos\Documents\Julian's Files\GIT\Marionette\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNAContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\julia_000\Source\Repos\Marionette2\Marionette C#\MarionetteXNA\MarionetteXNA\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -79,8 +79,8 @@
         <Value>2011-09-01T15:22:30+10:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-01-29T14:01:57.496492+11:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2015-02-11T13:07:33.7341939+11:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace MarionetteXNA
 {
-    class RobotData : GameComponent
+    class RobotData : DrawableGameComponent
     {
         #region Fields
         private Matrix[] sequentialHomeTransform;
@@ -21,31 +21,37 @@ namespace MarionetteXNA
         private float[][] dhParameters;
         private Matrix ToGlobal;
         private XMLreader.Position kukaPosition;
+        private Quaternion angles;
+
+        SpriteBatch spriteBatch;
+        Game1 game;
+
+        private Model robot;
+        private Model Table;
+        private Matrix[] Transforms;
+        private ModelBone[] Bones;
+
+        Matrix[] TableTransforms;
+        ModelBone[] TableBones;
+        private float[] Angles;
+        private Vector3 EndEffector;
         #endregion
 
 
         #region Constructor
         public RobotData(Game1 game) : base(game)
         {
-            // Construct DH perameters
-            dhParameters = new float[7][]{  new float[]{-90,0,0,400},
-                                            new float[]{90,25,90,0},
-                                            new float[]{0,560,0,0},
-                                            new float[]{90,35,0,515},
-                                            new float[]{-90,0,-90,0},
-                                            new float[]{90,0,0,0},
-                                            new float[]{0,0,0,80}};
-            sequentialHomeTransform = new Matrix[dhParameters.Length];
-            for (int i = 0; i < dhParameters.Length; i++)
-            {
-                sequentialHomeTransform[i] = getDH(dhParameters[i]);
-            }
-            TipTransform = sequentialHomeTransform[0] * sequentialHomeTransform[1] * sequentialHomeTransform[2] * sequentialHomeTransform[3] * sequentialHomeTransform[4] * sequentialHomeTransform[5] * sequentialHomeTransform[6];
-
+            this.game = game;
+            
+            // Construct DH perameters 
+            sequentialHomeTransform = getDH(getKr10());
+            
 
             // Construct Jacobean
             // Start Simulation
             //      Assign home position, end effector and angles for simulation
+            TipTransform = sequentialHomeTransform[0] * sequentialHomeTransform[1] * sequentialHomeTransform[2] * sequentialHomeTransform[3] * sequentialHomeTransform[4] * sequentialHomeTransform[5] * sequentialHomeTransform[6];
+
             // 
         }
         #endregion
@@ -63,7 +69,7 @@ namespace MarionetteXNA
         }
         #endregion
 
-        #region Methods
+        
         #region Initialise
         public override void Initialize()
         {
@@ -75,6 +81,19 @@ namespace MarionetteXNA
         }
         #endregion
 
+
+        
+        #region LoadContent
+        protected override void LoadContent()
+        {
+
+            robot =  game.Content.Load<Model>("robot");
+            Table = game.Content.Load<Model>("table");
+            base.LoadContent();
+        }
+        #endregion
+
+
         #region Update
         public override void Update(GameTime gameTime)
         {
@@ -82,15 +101,68 @@ namespace MarionetteXNA
         }
         #endregion
 
-        private Matrix getDH(float[] dhValues)
+
+        #region Draw
+        public override void Draw(GameTime gameTime)
         {
-            Matrix rotationX = Matrix.CreateRotationX(MathHelper.ToRadians(dhValues[0]));
-            rotationX.Translation = new Vector3(dhValues[1], 0, 0);
-            Matrix rotationZ = Matrix.CreateRotationZ(MathHelper.ToRadians(dhValues[2]));
-            rotationZ.Translation = new Vector3(0, 0, dhValues[3]);
-            return rotationX * rotationZ;
+            Matrix[] transforms = new Matrix[robot.Bones.Count];
+            TableTransforms = new Matrix[Table.Bones.Count];
+            robot.CopyAbsoluteBoneTransformsTo(transforms);
+            Table.CopyAbsoluteBoneTransformsTo(TableTransforms);
+            foreach (ModelMesh mesh in Table.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                    effect.World = TableTransforms[mesh.ParentBone.Index];
+                    effect.View = game.ViewMat;
+                    effect.Projection = game.ProjectionMat;
+                }
+            }
+            foreach (ModelMesh mesh in robot.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                    effect.World = transforms[mesh.ParentBone.Index];
+                    effect.View = game.ViewMat;
+                    effect.Projection = game.ProjectionMat;
+
+                }
+                mesh.Draw();
+            }
+            base.Draw(gameTime);
+        }
+        #endregion
+
+        #region ClassMethods
+        private float[][] getKr10()
+        {
+            dhParameters = new float[7][]{  new float[]{-90,0,0,400},
+                                            new float[]{90,25,90,0},
+                                            new float[]{0,560,0,0},
+                                            new float[]{90,35,0,515},
+                                            new float[]{-90,0,-90,0},
+                                            new float[]{90,0,0,0},
+                                            new float[]{0,0,0,80}};
+            return dhParameters;
+        }
+
+        private Matrix[] getDH(float[][] dhValues)
+        {
+            Matrix[] dhRows = new Matrix[dhValues.Length];
+            for (int i = 0; i < dhValues.Length; i++)
+            {
+                Matrix rotationX = Matrix.CreateRotationX(MathHelper.ToRadians(dhValues[i][0]));
+                rotationX.Translation = new Vector3(dhValues[i][1], 0, 0);
+                Matrix rotationZ = Matrix.CreateRotationZ(MathHelper.ToRadians(dhValues[i][2]));
+                rotationZ.Translation = new Vector3(0, 0, dhValues[i][3]);
+                dhRows[i] = rotationX * rotationZ; ;
+            }
+            return dhRows;
         }
         
         #endregion
+
     }
 }
