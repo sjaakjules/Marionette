@@ -14,7 +14,7 @@ using System.Xml;
 
 namespace MarionetteXNA
 {
-    class XMLwriter : Server
+    class XMLwriter 
     {
 
         #region Fields
@@ -176,6 +176,8 @@ namespace MarionetteXNA
                 updatePos.WriteEndElement();
                 updatePos.WriteEndDocument();
             }
+            
+            
         }
         public void updateRobot()
         {
