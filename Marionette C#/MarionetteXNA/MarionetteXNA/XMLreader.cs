@@ -11,10 +11,11 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Diagnostics;
 using System.Xml;
+using System.IO;
 
 namespace MarionetteXNA
 {
-    class XMLreader : Server
+    class XMLreader 
     {
         #region Fields
         public Position measuredPosition;
@@ -41,9 +42,17 @@ namespace MarionetteXNA
         #endregion
 
         #region Update
-        public void readFile() 
+
+        public void ConvertByteToXml(byte[] data)
         {
-            using (XmlReader reader = XmlReader.Create("robot.xml"))
+            using (MemoryStream stream = new MemoryStream(data))
+            {
+                readStream(stream);
+            }
+        }
+        public void readStream(MemoryStream stream) 
+        {
+            using (XmlReader reader = XmlReader.Create(stream))
             {
                 
                 while (reader.Read())

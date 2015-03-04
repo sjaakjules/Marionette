@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Diagnostics;
 using System.Xml;
+using System.IO;
 
 namespace MarionetteXNA
 {
@@ -20,6 +21,7 @@ namespace MarionetteXNA
         #region Fields
         public String RobotIP = "192.0.1.2";
         public String RobotPort = "6008";
+        public byte[] bCommand;
         #endregion
 
         #region Properties
@@ -158,48 +160,60 @@ namespace MarionetteXNA
         #endregion
 
         #region Methods
+       
         public void updateRobot(RobotData robot)
         {
-            using (XmlWriter updatePos = XmlWriter.Create("Update.xml"))
+            using (MemoryStream stream = new MemoryStream())
             {
-                updatePos.WriteStartDocument();
-                updatePos.WriteStartElement("Sen");
-                updatePos.WriteAttributeString("Type", "ImFree");
-                updatePos.WriteStartElement("RKorr");
-                updatePos.WriteAttributeString("X", robot.KukaPosition.X.ToString());
-                updatePos.WriteAttributeString("Y", robot.KukaPosition.Y.ToString());
-                updatePos.WriteAttributeString("Z", robot.KukaPosition.Z.ToString());
-                updatePos.WriteAttributeString("A", robot.KukaPosition.A.ToString());
-                updatePos.WriteAttributeString("B", robot.KukaPosition.B.ToString());
-                updatePos.WriteAttributeString("C", robot.KukaPosition.C.ToString());
-                updatePos.WriteEndElement();
-                updatePos.WriteEndElement();
-                updatePos.WriteEndDocument();
+                using (XmlWriter updatePos = XmlWriter.Create(stream))
+                {
+                    updatePos.WriteStartDocument();
+                    updatePos.WriteStartElement("Sen");
+                    updatePos.WriteAttributeString("Type", "ImFree");
+                    updatePos.WriteStartElement("RKorr");
+                    updatePos.WriteAttributeString("X", robot.KukaPosition.X.ToString());
+                    updatePos.WriteAttributeString("Y", robot.KukaPosition.Y.ToString());
+                    updatePos.WriteAttributeString("Z", robot.KukaPosition.Z.ToString());
+                    updatePos.WriteAttributeString("A", robot.KukaPosition.A.ToString());
+                    updatePos.WriteAttributeString("B", robot.KukaPosition.B.ToString());
+                    updatePos.WriteAttributeString("C", robot.KukaPosition.C.ToString());
+                    updatePos.WriteEndElement();
+                    updatePos.WriteEndElement();
+                    updatePos.WriteEndDocument();
+                }
+                bCommand = new byte[stream.ToArray().Length];
+                bCommand = stream.ToArray();
+                
             }
-            
-            
         }
+
         public void updateRobot()
         {
-            using ( XmlWriter updatePos = XmlWriter.Create("Update.xml"))
+            using (MemoryStream stream = new MemoryStream())
             {
-                updatePos.WriteStartDocument();
-                updatePos.WriteStartElement("Sen");
-                updatePos.WriteAttributeString("Type", "ImFree");
-                updatePos.WriteStartElement("RKorr");
-                updatePos.WriteAttributeString("C", "a");
-                updatePos.WriteAttributeString("B", "a");
-                updatePos.WriteAttributeString("A", "a");
-                updatePos.WriteAttributeString("Z", "a");
-                updatePos.WriteAttributeString("Y", Mouse.GetState().Y.ToString());
-                updatePos.WriteAttributeString("X", Mouse.GetState().X.ToString());
-                updatePos.WriteEndElement();
-                updatePos.WriteStartElement("IPOC");
-                updatePos.WriteValue(1563516353);
-                updatePos.WriteEndElement();
-                updatePos.WriteEndElement();
-                updatePos.WriteEndDocument();
+                using (XmlWriter updatePos = XmlWriter.Create("Update.xml"))
+                {
+                    updatePos.WriteStartDocument();
+                    updatePos.WriteStartElement("Sen");
+                    updatePos.WriteAttributeString("Type", "ImFree");
+                    updatePos.WriteStartElement("RKorr");
+                    updatePos.WriteAttributeString("C", "a");
+                    updatePos.WriteAttributeString("B", "a");
+                    updatePos.WriteAttributeString("A", "a");
+                    updatePos.WriteAttributeString("Z", "a");
+                    updatePos.WriteAttributeString("Y", Mouse.GetState().Y.ToString());
+                    updatePos.WriteAttributeString("X", Mouse.GetState().X.ToString());
+                    updatePos.WriteEndElement();
+                    updatePos.WriteStartElement("IPOC");
+                    updatePos.WriteValue(1563516353);
+                    updatePos.WriteEndElement();
+                    updatePos.WriteEndElement();
+                    updatePos.WriteEndDocument();
+                }
+                bCommand = new byte[stream.ToArray().Length];
+                bCommand = stream.ToArray();
             }
+            
         }
 
         #endregion
