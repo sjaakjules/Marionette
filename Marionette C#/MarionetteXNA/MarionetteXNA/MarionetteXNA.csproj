@@ -83,6 +83,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Functions.cs" />
     <Compile Include="RobotData.cs" />
     <Compile Include="RobotSim.cs" />
     <Compile Include="GUI.cs">

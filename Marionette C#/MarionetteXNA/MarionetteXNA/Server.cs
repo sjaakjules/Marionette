@@ -50,6 +50,8 @@ namespace MarionetteXNA
         private Socket udpSocket;
         private Thread udpServerThread;
 
+        private RobotData kukaRobot, simRobot;
+
 
         #endregion
 
@@ -58,9 +60,11 @@ namespace MarionetteXNA
         #endregion
 
         #region Constructors
-        public Server(int port)
+        public Server(int port, RobotData kukaRobot, RobotData simRobot)
         {
             this.tcpPort = port;
+            this.kukaRobot = kukaRobot;
+            this.simRobot = simRobot;
         }
 
         #endregion
@@ -387,7 +391,7 @@ namespace MarionetteXNA
                                 RIstValue = reader["X"];
                                 if (RIstValue != null)
                                 {
-                                    measuredPosition.X = float.Parse(RIstValue);
+                                    kukaRobot.KukaPosition[0] = float.Parse(RIstValue);
                                 }
                                 RIstValue = reader["Y"];
                                 if (RIstValue != null)

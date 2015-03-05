@@ -16,7 +16,14 @@ namespace MarionetteXNA
     class RobotData : DrawableGameComponent
     {
         #region Fields
-        private Matrix[] sequentialHomeTransform;
+        // End Effector information 
+        private float[] positionEE, lastPositionEE, velocityEE, lastVelocityEE, accelerationEE, lastAccelerationEE;
+        private Quaternion orientationEE, lastOrientationEE, orientationVelocityEE, lastOrientationVelocityEE, orientationAccelerationEE, lastOrientationAccelerationEE;
+        // Lock pertaining to the above end effector information
+        public Object EEInfoLock = new Object();
+
+        // Home position information and DH parameters
+        private Matrix[] homeLinkTransforms;
         private Matrix TipTransform;
         private float[][] dhParameters;
         private Matrix ToGlobal;
@@ -44,13 +51,13 @@ namespace MarionetteXNA
             this.game = game;
             
             // Construct DH perameters 
-            sequentialHomeTransform = getDH(getKr10());
+            homeLinkTransforms = getDH(getKr10());
             
 
             // Construct Jacobean
             // Start Simulation
             //      Assign home position, end effector and angles for simulation
-            TipTransform = sequentialHomeTransform[0] * sequentialHomeTransform[1] * sequentialHomeTransform[2] * sequentialHomeTransform[3] * sequentialHomeTransform[4] * sequentialHomeTransform[5] * sequentialHomeTransform[6];
+            TipTransform = homeLinkTransforms[0] * homeLinkTransforms[1] * homeLinkTransforms[2] * homeLinkTransforms[3] * homeLinkTransforms[4] * homeLinkTransforms[5] * homeLinkTransforms[6];
 
             // 
         }
@@ -66,6 +73,15 @@ namespace MarionetteXNA
         public XMLreader.Position KukaPosition
         {
             get { return kukaPosition; }
+        }
+
+        public float[] setPosition
+        {
+            set 
+            { 
+                lastPositionEE = positionEE;
+                positionEE = value;
+            }
         }
         #endregion
 
@@ -136,6 +152,39 @@ namespace MarionetteXNA
         #endregion
 
         #region ClassMethods
+        private void UpdatePositionInformation(float[] newPosition, TimeSpan loopTime)
+        {
+
+            lastPositionEE = positionEE;
+            positionEE = newPosition;
+            lastVelocityEE = velocityEE;
+            for (int i = 0; i < newPosition.Length; i++)
+			{
+                velocityEE[i] = 1000f * (newPosition[i] - lastPositionEE[i]) / loopTime.Milliseconds;
+			}
+            lastAccelerationEE = accelerationEE;
+            for (int i = 0; i < newPosition.Length; i++)
+            {
+                accelerationEE[i] = 1000f * (velocityEE[i] - lastVelocityEE[i]) / loopTime.Milliseconds;
+            }
+        }
+
+        private void UpdateOrientationInformation(Quaternion newOrientation, TimeSpan loopTime)
+        {
+            Vector3 axis = new Vector3();
+            float angle = 0;
+            lastOrientationEE = orientationEE;
+            orientationEE = newOrientation;
+            lastOrientationVelocityEE = orientationVelocityEE;
+            Functions.getAxisAngle(Quaternion.Subtract(orientationVelocityEE, lastOrientationVelocityEE), ref axis, ref angle);
+            orientationVelocityEE = Quaternion.CreateFromAxisAngle(axis, 1000f * angle / loopTime.Milliseconds);
+
+            lastOrientationVelocityEE = orientationVelocityEE;
+            Functions.getAxisAngle(Quaternion.Subtract(orientationVelocityEE, lastOrientationVelocityEE), ref axis, ref angle);
+            orientationVelocityEE = Quaternion.CreateFromAxisAngle(axis, 1000f * angle / loopTime.Milliseconds);
+            
+        }
+
         private float[][] getKr10()
         {
             dhParameters = new float[7][]{  new float[]{-90,0,0,400},
